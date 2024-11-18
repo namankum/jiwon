@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY BIRTHDAY</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            background: url('https://file.notion.so/f/f/3592f0ec-b7b5-4c07-9cb5-921db1b5e2e9/250bfc62-1796-493d-bc6e-78e2bb1f9ed8/jiwon.jpeg?table=block&id=1425221f-f084-8056-a42a-f2b1ec06e939&spaceId=3592f0ec-b7b5-4c07-9cb5-921db1b5e2e9&expirationTimestamp=1731988800000&signature=JFc-NOF5xwhvoUzs691jYEDgb4HgjijeXtLMKZPAEA8&downloadName=jiwon.jpeg') no-repeat center center fixed;
+            background-size: contain; /* 이미지 크기를 화면에 맞게 전체 보이도록 설정 */
+            background-position: center center; /* 이미지가 화면 중앙에 위치하도록 설정 */
+            background-attachment: fixed; /* 배경이 고정되도록 설정 */
+        }
+
+        #letter {
+            font-family: 'Arial', sans-serif;
+            font-size: 38px; /* 글씨 크기를 2배로 키움 */
+            color: #fff;
+            text-align: center;
+            position: absolute; /* 위치를 절대값으로 설정 */
+            top: calc(20px + 3cm); /* 텍스트 위치를 3cm 아래로 조정 */
+            left: 50%; /* 화면 가운데로 설정 */
+            transform: translateX(-50%); /* 정확하게 가운데로 오도록 설정 */
+        }
+
+        .star {
+            position: fixed;
+            background: #fafaf7;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* 별 모양 만들기 */
+            animation: twinkle 30s infinite;
+            z-index: 2;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(500px);
+                opacity: 0;
+            }
+        }
+
+        /* 반응형 설정 */
+        @media (max-width: 768px) {
+            body {
+                background-position: center center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                background-position: center center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="letter">
+        <p>생일 축하해 <br>채원공주❤️</p>
+    </div>
+    
+    <!-- Generate stars using JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const numberOfStars = 50;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                createStar();
+            }
+
+            function createStar() {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * window.innerWidth}px`;
+                star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+                star.style.top = `${Math.random() * window.innerHeight}px`; 
+
+                document.body.appendChild(star); // Append stars to body
+            }
+        });
+    </script>
+</body>
+</html>
